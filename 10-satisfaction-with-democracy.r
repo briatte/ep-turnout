@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # Process Eurobarometer estimates of 'satisfaction with [domestic] democracy'
-# -> Output: data-raw/eb-satisfaction-aggregates.tsv
+# -> Output: data/eb-satisfaction-aggregates.tsv
 #
 # Package dependencies
 # ------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ library(tidyr)
 e <- read_tsv("data/elections-ep-only.tsv") %>% 
   select(iso3c, year, date)
 
-d <- read_excel("data-raw/eb-satisfaction-with-democracy.xlsx") %>% 
+d <- read_excel("data/eb-satisfaction-with-democracy.xlsx") %>% 
   filter(!Country %in% c("European Union", "Turkish Cypriot Community")) %>% 
   mutate(
     iso3c = countrycode(Country, "country.name", "iso3c"),
@@ -193,6 +193,6 @@ tapply(d$stf_dem_n, d$year, mean)
 filter(d, is.na(stf_dem_p)) %>% 
   arrange(year)
 
-write_tsv(d, "data-raw/eb-satisfaction-aggregates.tsv")
+write_tsv(d, "data/eb-satisfaction-aggregates.tsv")
 
 # have a nice day

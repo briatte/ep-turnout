@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # Get population estimates
-# -> Output: data-raw/wdi-sp.pop.totl.tsv
+# -> Output: data/wdi-sp.pop.totl.tsv
 #
 # Package dependencies
 # ------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ d <- read_tsv("data/elections-parliament-and-ep.tsv") %>%
 # https://data.worldbank.org/indicator/sp.pop.totl
 # ------------------------------------------------------------------------------
 
-f <- "data-raw/wdi-sp.pop.totl.tsv"
+f <- "data/wdi-sp.pop.totl.tsv"
 if (!file.exists(f)) {
   
   x <- WDI(
@@ -140,6 +140,6 @@ d <- left_join(d, select(x, -pop), by = c("iso3c", "year")) %>%
 # Export
 # ------------------------------------------------------------------------------
 
-write_tsv(d, "data-raw/covariate-population.tsv")
+write_tsv(d, "data/covariate-population.tsv")
 
 # have a nice day
