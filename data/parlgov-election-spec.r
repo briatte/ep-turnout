@@ -1,0 +1,21 @@
+cols(
+  id = col_double(),
+  type_id = col_integer(),
+  country_id = col_integer(),
+  date = col_date(format = ""),
+  first_round_election_id = col_logical(),
+  early = col_integer(),
+  wikipedia = col_character(),
+  seats_total = col_integer(),
+  electorate = col_integer(),
+  votes_cast = col_integer(),
+  votes_valid = col_integer(),
+  data_source = col_character(),
+  description = col_character(),
+  comment = col_character(),
+  previous_parliament_election_id = col_integer(),
+  previous_ep_election_id = col_integer(),
+  previous_cabinet_id = col_integer(),
+  old_countryID = col_integer(),
+  old_parlID = col_integer()
+)

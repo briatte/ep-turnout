@@ -1,0 +1,31 @@
+idea_name	eb_za3521_name	eb_code	iso2c	iso3c	sample	ms_recent	ms_eastern	comment
+Austria	austria	AT	AT	AUT	1	0	0	
+Belgium	belgium	BE	BE	BEL	1	0	0	
+Bulgaria		BG	BG	BGR	1	1	1	
+	switzerland	CH	CH	CHE	0	0	0	
+Cyprus		CY	CY	CYP	1	1	0	
+Czech Republic		CZ	CZ	CZE	1	1	1	
+Germany	germany	DE	DE	DEU	1	0	0	using data from West Germany prior to 1990-1991
+Estonia		EE	EE	EST	1	1	1	
+Denmark	denmark	DK	DK	DNK	1	0	0	
+Spain	spain	ES	ES	ESP	1	0	0	
+Finland	finland	FI	FI	FIN	1	0	0	
+France	france	FR	FR	FRA	1	0	0	
+Greece	greece	GR	GR	GRC	1	0	0	
+Hungary		HU	HU	HUN	1	1	1	
+Croatia		HR	HR	HRV	1	1	1	
+Ireland	ireland	IE	IE	IRL	1	0	0	
+Italy	italy	IT	IT	ITA	1	0	0	
+Lithuania		LT	LT	LTU	1	1	1	
+Luxembourg	luxembourg	LU	LU	LUX	1	0	0	
+Latvia		LV	LV	LVA	1	1	1	
+Malta		MT	MT	MLT	1	1	0	
+Netherlands	netherlands	NL	NL	NLD	1	0	0	
+	norway	NO	NO	NOR	0	0	0	
+Poland		PL	PL	POL	1	1	1	
+Portugal	portugal	PT	PT	PRT	1	0	0	
+Romania		RO	RO	ROU	1	1	1	
+Sweden	sweden	SE	SE	SWE	1	0	0	
+Slovenia		SI	SI	SVN	1	1	1	
+Slovakia		SK	SK	SVK	1	1	1	
+United Kingdom	uk	UK	GB	GBR	1	0	0	using data from Great Britain + Northern Ireland
