@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # Get GDP per capita (constant USD)
-# -> Output: data-raw/wdi-ny.gdp.pcap.cd.tsv
+# -> Output: data/wdi-ny.gdp.pcap.cd.tsv
 #
 # Package dependencies
 # ------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ d <- read_tsv("data/elections-parliament-and-ep.tsv") %>%
 # https://data.worldbank.org/indicator/ny.gdp.pcap.cd
 # ------------------------------------------------------------------------------
 
-f <- "data-raw/wdi-ny.gdp.pcap.cd.tsv"
+f <- "data/wdi-ny.gdp.pcap.cd.tsv"
 if (!file.exists(f)) {
   
   x <- WDI(
@@ -67,9 +67,10 @@ t <- na.omit(x) %>% # remove years with no GDP/c values
   mutate(log_gdpc = log(gdpc)) %>% 
   as_tsibble(key = iso3c, index = year) %>% 
   model(ARIMA(log_gdpc)) %>% 
-  forecast(h = 2) %>% # time horizon of 2 years after last year values (2017)
-  rename(yhat = log_gdpc) %>% 
+  forecast(h = 2) %>% 
+  # time horizon of 2 years after last year values (2017)
   mutate(yhat_sd = map_dbl(.distribution, ~ .$sd)) %>% 
+  rename(yhat = log_gdpc) %>% 
   as_tibble
 
 # add imputed values
@@ -82,8 +83,8 @@ x <- full_join(x, select(t, iso3c, year, yhat), by = c("iso3c", "year")) %>%
   filter(!is.na(gdpc)) %>% 
   select(-yhat)
 
-# sanity check: forecasting only last two years, 2018 and 2019
-stopifnot(x$year[ x$gdpc_source == "wdi-imputed" ] %in% c(2018, 2019))
+# sanity check: forecasting only last three years, 2018-2020
+stopifnot(x$year[ x$gdpc_source == "wdi-imputed" ] %in% c(2018, 2019, 2020))
 
 ggplot(x, aes(year, gdpc)) +
   geom_line() +
@@ -142,6 +143,6 @@ ggsave(
 # Export
 # ------------------------------------------------------------------------------
 
-write_tsv(d, "data-raw/covariate-gdpc.tsv")
+write_tsv(d, "data/covariate-gdpc.tsv")
 
 # have a nice day

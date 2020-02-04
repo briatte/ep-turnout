@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------------------
 # Get Gini coefficients
-# -> Output: data-raw/covariate-gini.tsv
+# -> Output: data/covariate-gini.tsv
 #
 # Package dependencies
 # ------------------------------------------------------------------------------
@@ -27,7 +27,7 @@ d <- read_tsv("data/elections-parliament-and-ep.tsv") %>%
 # (manually downloaded)
 # ------------------------------------------------------------------------------
 
-x <- read_csv("data-raw/swiid8_1_summary.csv")%>%
+x <- read_csv("data/swiid8_1_summary.csv")%>%
   select(country, year, gini_disp)
 
 # to compute similar values manually (using the SWIID Stata dataset):
@@ -35,7 +35,7 @@ x <- read_csv("data-raw/swiid8_1_summary.csv")%>%
 # library(dplyr)
 # library(haven)
 # library(tidyr)
-# x <- read_dta("data-raw/swiid8_1/swiid8_1.dta") %>%
+# x <- read_dta("data/swiid8_1/swiid8_1.dta") %>%
 #   mutate(year = as.numeric(year)) %>% # lose Stata format attributes
 #   group_by(country, year) %>%
 #   select(country, year, matches("_(.*)gini_disp")) %>%
@@ -170,6 +170,6 @@ ggsave(
 )
 
 # save a TSV plain text copy
-write_tsv(d, "data-raw/covariate-gini.tsv")
+write_tsv(d, "data/covariate-gini.tsv")
 
 # have a nice day
